@@ -1,4 +1,4 @@
-﻿/*
+/*
  * QUANTCONNECT.COM - Democratizing Finance, Empowering Individuals.
  * Lean Algorithmic Trading Engine v2.0. Copyright 2014 QuantConnect Corporation.
  *
@@ -71,6 +71,7 @@ namespace QuantConnect.Data.Custom.CBOE
         /// <returns>New BaseData instance to be used in the algorithm</returns>
         public override BaseData Reader(SubscriptionDataConfig config, string line, DateTime date, bool isLiveMode)
         {
+            Logging.Log.Trace($"{DateTime.Now} :: {config.Symbol} :: {line}");
             // Return null if we don't have a valid date for the first entry
             if (!char.IsNumber(line.FirstOrDefault()))
             {
