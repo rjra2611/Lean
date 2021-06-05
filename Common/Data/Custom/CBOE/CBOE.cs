@@ -72,6 +72,7 @@ namespace QuantConnect.Data.Custom.CBOE
         public override BaseData Reader(SubscriptionDataConfig config, string line, DateTime date, bool isLiveMode)
         {
             Logging.Log.Trace($"{DateTime.Now} :: {config.Symbol} :: {line}");
+            Logging.Log.Debug($"{DateTime.Now} :: {config.Symbol} :: {line}");
             // Return null if we don't have a valid date for the first entry
             if (!char.IsNumber(line.FirstOrDefault()))
             {
