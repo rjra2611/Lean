@@ -23,7 +23,6 @@ using QuantConnect.ToolBox.CoarseUniverseGenerator;
 using QuantConnect.ToolBox.CoinApiDataConverter;
 using QuantConnect.ToolBox.CryptoiqDownloader;
 using QuantConnect.ToolBox.DukascopyDownloader;
-using QuantConnect.ToolBox.GDAXDownloader;
 using QuantConnect.ToolBox.IBDownloader;
 using QuantConnect.ToolBox.IEX;
 using QuantConnect.ToolBox.IQFeedDownloader;
@@ -85,10 +84,6 @@ namespace QuantConnect.ToolBox
                     : DateTime.UtcNow;
                 switch (targetApp)
                 {
-                    case "gdaxdl":
-                    case "gdaxdownloader":
-                        GDAXDownloaderProgram.GDAXDownloader(tickers, resolution, fromDate, toDate);
-                        break;
                     case "cdl":
                     case "cryptoiqdownloader":
                         CryptoiqDownloaderProgram.CryptoiqDownloader(tickers, GetParameterOrExit(optionsObject, "exchange"), fromDate, toDate);
@@ -157,10 +152,6 @@ namespace QuantConnect.ToolBox
             {
                 switch (targetApp)
                 {
-                    case "gdaxspu":
-                    case "gdaxsymbolpropertiesupdater":
-                        GDAXDownloaderProgram.ExchangeInfoDownloader();
-                        break;
                     case "bfxspu":
                     case "bitfinexsymbolpropertiesupdater":
                         BitfinexDownloaderProgram.ExchangeInfoDownloader();
