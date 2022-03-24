@@ -29,7 +29,7 @@ namespace QuantConnect.Tests.Common.Orders.Fees
     {
         private Crypto _btcusd;
         private Crypto _btceur;
-        private readonly IFeeModel _feeModel = new GDAXFeeModel();
+        private readonly IFeeModel _feeModel = new CoinbaseProFeeModel();
 
         [SetUp]
         public void Initialize()

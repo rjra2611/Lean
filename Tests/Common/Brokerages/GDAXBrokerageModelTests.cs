@@ -40,7 +40,7 @@ namespace QuantConnect.Tests.Common.Brokerages
         [Test]
         public void GetFeeModelTest()
         {
-            Assert.IsInstanceOf<GDAXFeeModel>(_gdaxBrokerageModel.GetFeeModel(TestsHelpers.GetSecurity()));
+            Assert.IsInstanceOf<CoinbaseProFeeModel>(_gdaxBrokerageModel.GetFeeModel(TestsHelpers.GetSecurity()));
         }
 
         [Test]
@@ -123,7 +123,7 @@ namespace QuantConnect.Tests.Common.Brokerages
         public void FeeModelReturnsCorrectOrderFeeForTakerMarketOrder()
         {
             var security = TestsHelpers.GetSecurity();
-            security.FeeModel = new GDAXFeeModel();
+            security.FeeModel = new CoinbaseProFeeModel();
             security.SetMarketPrice(new TradeBar { Symbol = security.Symbol, Close = 5000m });
             var orderFee = security.FeeModel.GetOrderFee(new OrderFeeParameters(
                 security,
@@ -137,7 +137,7 @@ namespace QuantConnect.Tests.Common.Brokerages
         public void FeeModelReturnsCorrectOrderFeeForMakerLimitOrdersTickResolution()
         {
             var security = TestsHelpers.GetSecurity(resolution: Resolution.Tick);
-            security.FeeModel = new GDAXFeeModel();
+            security.FeeModel = new CoinbaseProFeeModel();
             security.SetMarketPrice(new Tick { Symbol = security.Symbol, Value = 5000m });
 
             var orderFee = security.FeeModel.GetOrderFee(new OrderFeeParameters(
@@ -173,7 +173,7 @@ namespace QuantConnect.Tests.Common.Brokerages
         public void FeeModelReturnsCorrectOrderFeeForTakerLimitOrdersTickResolution()
         {
             var security = TestsHelpers.GetSecurity(resolution: Resolution.Tick);
-            security.FeeModel = new GDAXFeeModel();
+            security.FeeModel = new CoinbaseProFeeModel();
             security.SetMarketPrice(new Tick { Symbol = security.Symbol, Value = 5000m });
             var orderFee = security.FeeModel.GetOrderFee(new OrderFeeParameters(
                 security, new LimitOrder(security.Symbol, 1, 5000.01m, DateTime.MinValue)
@@ -213,7 +213,7 @@ namespace QuantConnect.Tests.Common.Brokerages
             var time = new DateTime(2018, 4, 10);
             var security = TestsHelpers.GetSecurity();
 
-            security.FeeModel = new GDAXFeeModel();
+            security.FeeModel = new CoinbaseProFeeModel();
             security.SetMarketPrice(new TradeBar { Symbol = security.Symbol, Close = 5000m, EndTime = time.AddSeconds(75) });
 
             var orderFee = security.FeeModel.GetOrderFee(new OrderFeeParameters(
@@ -241,7 +241,7 @@ namespace QuantConnect.Tests.Common.Brokerages
             var time = new DateTime(2018, 4, 10);
             var security = TestsHelpers.GetSecurity();
 
-            security.FeeModel = new GDAXFeeModel();
+            security.FeeModel = new CoinbaseProFeeModel();
             security.SetMarketPrice(new TradeBar { Symbol = security.Symbol, Close = 5000m, EndTime = time.AddMinutes(1) });
 
             var orderFee = security.FeeModel.GetOrderFee(new OrderFeeParameters(

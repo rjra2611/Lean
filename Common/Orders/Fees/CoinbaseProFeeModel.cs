@@ -21,7 +21,7 @@ namespace QuantConnect.Orders.Fees
     /// <summary>
     /// Provides an implementation of <see cref="FeeModel"/> that models GDAX order fees
     /// </summary>
-    public class GDAXFeeModel : FeeModel
+    public class CoinbaseProFeeModel : FeeModel
     {
         /// <summary>
         /// Get the fee for this order in quote currency

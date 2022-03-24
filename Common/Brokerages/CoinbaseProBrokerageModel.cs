@@ -77,7 +77,7 @@ namespace QuantConnect.Brokerages
         /// <returns></returns>
         public override IFeeModel GetFeeModel(Security security)
         {
-            return new GDAXFeeModel();
+            return new CoinbaseProFeeModel();
         }
 
         /// <summary>
