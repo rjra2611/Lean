@@ -684,9 +684,9 @@ namespace QuantConnect.Tests.Common.Securities
             // *** GDAX ***
             // Trades USDC and USDT* (*Not yet trading live, but expected soon)
             // USDC Cases
-            new object[] { new GDAXBrokerageModel(), Currencies.USD, "USDC", false, null }, // No USDCUSD, but does not throw! Conversion 1-1
-            new object[] { new GDAXBrokerageModel(), Currencies.EUR, "USDC", false, new[] { Symbol.Create("USDCEUR", SecurityType.Crypto, Market.GDAX) } },
-            new object[] { new GDAXBrokerageModel(), Currencies.GBP, "USDC", false, new[] { Symbol.Create("USDCGBP", SecurityType.Crypto, Market.GDAX) } },
+            new object[] { new CoinbaseProBrokerageModel(), Currencies.USD, "USDC", false, null }, // No USDCUSD, but does not throw! Conversion 1-1
+            new object[] { new CoinbaseProBrokerageModel(), Currencies.EUR, "USDC", false, new[] { Symbol.Create("USDCEUR", SecurityType.Crypto, Market.GDAX) } },
+            new object[] { new CoinbaseProBrokerageModel(), Currencies.GBP, "USDC", false, new[] { Symbol.Create("USDCGBP", SecurityType.Crypto, Market.GDAX) } },
 
             // *** Binance ***
             // USDC Cases

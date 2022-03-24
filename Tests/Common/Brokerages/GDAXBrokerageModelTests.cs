@@ -29,7 +29,7 @@ namespace QuantConnect.Tests.Common.Brokerages
     [TestFixture, Parallelizable(ParallelScope.All)]
     public class GDAXBrokerageModelTests
     {
-        private readonly GDAXBrokerageModel _gdaxBrokerageModel = new GDAXBrokerageModel();
+        private readonly CoinbaseProBrokerageModel _gdaxBrokerageModel = new CoinbaseProBrokerageModel();
 
         [Test]
         public void GetLeverageTest()
@@ -277,7 +277,7 @@ namespace QuantConnect.Tests.Common.Brokerages
         {
             Assert.Throws<ArgumentException>(() =>
             {
-                new GDAXBrokerageModel(AccountType.Margin);
+                new CoinbaseProBrokerageModel(AccountType.Margin);
             }, "The GDAX brokerage does not currently support Margin trading.");
         }
     }

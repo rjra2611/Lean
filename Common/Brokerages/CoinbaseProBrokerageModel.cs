@@ -27,7 +27,7 @@ namespace QuantConnect.Brokerages
     /// <summary>
     /// Provides GDAX specific properties
     /// </summary>
-    public class GDAXBrokerageModel : DefaultBrokerageModel
+    public class CoinbaseProBrokerageModel : DefaultBrokerageModel
     {
         private readonly BrokerageMessageEvent _message = new BrokerageMessageEvent(BrokerageMessageType.Warning, 0, "Brokerage does not support update. You must cancel and re-create instead.");
 
@@ -35,11 +35,11 @@ namespace QuantConnect.Brokerages
         private readonly DateTime _stopMarketOrderSupportEndDate = new DateTime(2019, 3, 23, 1, 0, 0);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GDAXBrokerageModel"/> class
+        /// Initializes a new instance of the <see cref="CoinbaseProBrokerageModel"/> class
         /// </summary>
         /// <param name="accountType">The type of account to be modelled, defaults to
         /// <see cref="AccountType.Cash"/></param>
-        public GDAXBrokerageModel(AccountType accountType = AccountType.Cash)
+        public CoinbaseProBrokerageModel(AccountType accountType = AccountType.Cash)
             : base(accountType)
         {
             if (accountType == AccountType.Margin)
@@ -117,7 +117,7 @@ namespace QuantConnect.Brokerages
             if (security.Type != SecurityType.Crypto)
             {
                 message = new BrokerageMessageEvent(BrokerageMessageType.Warning, "NotSupported",
-                    Invariant($"The {nameof(GDAXBrokerageModel)} does not support {security.Type} security type.")
+                    Invariant($"The {nameof(CoinbaseProBrokerageModel)} does not support {security.Type} security type.")
                 );
 
                 return false;
@@ -126,7 +126,7 @@ namespace QuantConnect.Brokerages
             if (order.Type != OrderType.Limit && order.Type != OrderType.Market && order.Type != OrderType.StopMarket && order.Type != OrderType.StopLimit)
             {
                 message = new BrokerageMessageEvent(BrokerageMessageType.Warning, "NotSupported",
-                    Invariant($"The {nameof(GDAXBrokerageModel)} does not support {order.Type} order type.")
+                    Invariant($"The {nameof(CoinbaseProBrokerageModel)} does not support {order.Type} order type.")
                 );
 
                 return false;
@@ -144,7 +144,7 @@ namespace QuantConnect.Brokerages
             if (order.TimeInForce != TimeInForce.GoodTilCanceled)
             {
                 message = new BrokerageMessageEvent(BrokerageMessageType.Warning, "NotSupported",
-                    Invariant($"The {nameof(GDAXBrokerageModel)} does not support {order.TimeInForce.GetType().Name} time in force.")
+                    Invariant($"The {nameof(CoinbaseProBrokerageModel)} does not support {order.TimeInForce.GetType().Name} time in force.")
                 );
 
                 return false;
