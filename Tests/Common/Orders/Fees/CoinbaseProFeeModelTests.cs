@@ -25,7 +25,7 @@ using QuantConnect.Securities.Crypto;
 namespace QuantConnect.Tests.Common.Orders.Fees
 {
     [TestFixture]
-    class GDAXFeeModelTests
+    class CoinbaseProFeeModelTests
     {
         private Crypto _btcusd;
         private Crypto _btceur;

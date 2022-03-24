@@ -27,7 +27,7 @@ using QuantConnect.Securities;
 namespace QuantConnect.Tests.Common.Brokerages
 {
     [TestFixture, Parallelizable(ParallelScope.All)]
-    public class GDAXBrokerageModelTests
+    public class CoinbaseProBrokerageModelTests
     {
         private readonly CoinbaseProBrokerageModel _gdaxBrokerageModel = new CoinbaseProBrokerageModel();
 
