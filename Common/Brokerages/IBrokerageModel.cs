@@ -210,7 +210,7 @@ namespace QuantConnect.Brokerages
                 case BrokerageName.BinanceUS:
                     return new BinanceUSBrokerageModel(accountType);
 
-                case BrokerageName.GDAX:
+                case BrokerageName.CoinbasePro:
                     return new CoinbaseProBrokerageModel(accountType);
 
                 case BrokerageName.AlphaStreams:

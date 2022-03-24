@@ -38,7 +38,7 @@ namespace QuantConnect.Algorithm.CSharp
 
             //Set the cash for the strategy:
             SetCash(100000);
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             SetTimeZone(NodaTime.DateTimeZone.Utc);
             var security = AddSecurity(SecurityType.Crypto, "BTCUSD", Resolution.Daily, Market.GDAX, false, 1, true);

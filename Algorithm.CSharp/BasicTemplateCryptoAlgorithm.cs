@@ -58,7 +58,7 @@ namespace QuantConnect.Algorithm.CSharp
             SetCash("BTC", 1m);
             SetCash("ETH", 5m);
 
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             // You can uncomment the following line when live trading with GDAX,
             // to ensure limit orders will only be posted to the order book and never executed as a taker (incurring fees).

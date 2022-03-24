@@ -34,7 +34,7 @@ namespace QuantConnect.Algorithm.CSharp
         {
             SetStartDate(2018, 04, 04);
             SetEndDate(2018, 04, 04);
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             // GDAX doesn't have LTCETH or ETHLTC, but they do have ETHUSD and LTCUSD to form a path between ETH and LTC
             SetAccountCurrency("ETH");

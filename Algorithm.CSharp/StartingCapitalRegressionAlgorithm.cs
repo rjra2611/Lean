@@ -40,7 +40,7 @@ namespace QuantConnect.Algorithm.CSharp
             SetCash("BTC", 10000);
             SetCash("ETH", 10000);
 
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             AddCrypto("BTCUSD");
             _symbol = AddCrypto("ETHUSD").Symbol;

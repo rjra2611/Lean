@@ -64,7 +64,7 @@ namespace QuantConnect.Brokerages
         /// <summary>
         /// Transaction and submit/execution rules will use gdax models
         /// </summary>
-        GDAX = 12,
+        CoinbasePro = 12,
 
         /// <summary>
         /// Transaction and submit/execution rules will use alpaca models

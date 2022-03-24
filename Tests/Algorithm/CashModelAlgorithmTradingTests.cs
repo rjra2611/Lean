@@ -695,7 +695,7 @@ namespace QuantConnect.Tests.Algorithm
             var algo = new QCAlgorithm();
             algo.SubscriptionManager.SetDataManager(new DataManagerStub(algo));
             algo.SetCash(100000);
-            algo.SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            algo.SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
             algo.Transactions.SetOrderProcessor(new FakeOrderProcessor());
             algo.SetFinishedWarmingUp();
             security = algo.AddSecurity(SecurityType.Crypto, "BTCUSD");

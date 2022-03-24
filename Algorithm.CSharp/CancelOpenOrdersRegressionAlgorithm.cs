@@ -37,7 +37,7 @@ namespace QuantConnect.Algorithm.CSharp
             SetEndDate(2017, 9, 3);    //Set End Date
             SetCash(1000);             //Set Strategy Cash
 
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             AddCrypto("BTCUSD");
             AddCrypto("ETHUSD");

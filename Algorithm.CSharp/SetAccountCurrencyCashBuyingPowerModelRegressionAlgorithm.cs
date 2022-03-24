@@ -54,7 +54,7 @@ namespace QuantConnect.Algorithm.CSharp
             _initialCapital = 10000;
             SetCash("USD", _initialCapital);
 
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             _btcUsd = AddCrypto("BTCUSD");
             _btcEur = AddCrypto("BTCEUR");

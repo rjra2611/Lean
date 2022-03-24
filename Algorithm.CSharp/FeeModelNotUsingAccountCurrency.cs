@@ -51,7 +51,7 @@ namespace QuantConnect.Algorithm.CSharp
             // https://github.com/QuantConnect/Lean/issues/1859
             SetCash("EUR", _initialEurCash, 1.23m);
 
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
 
             _security = AddCrypto("BTCEUR");
 

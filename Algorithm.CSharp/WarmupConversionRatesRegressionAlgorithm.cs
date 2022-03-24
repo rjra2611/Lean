@@ -33,7 +33,7 @@ namespace QuantConnect.Algorithm.CSharp
         {
             SetStartDate(2018, 4, 5);
             SetEndDate(2018, 4, 5);
-            SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash);
+            SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash);
             SetCash(10000);
 
             SetWarmUp(TimeSpan.FromDays(1));

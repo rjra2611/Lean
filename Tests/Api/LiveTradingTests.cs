@@ -244,7 +244,7 @@ namespace QuantConnect.Tests.API
 
                         settings = new BitfinexLiveAlgorithmSettings(key, secretKey);
                         break;
-                    case BrokerageName.GDAX:
+                    case BrokerageName.CoinbasePro:
                         key = Config.Get("gdax-api-key");
                         secretKey = Config.Get("gdax-api-secret");
                         var passphrase = Config.Get("gdax-api-passphrase");
