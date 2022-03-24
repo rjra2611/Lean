@@ -31,7 +31,7 @@ class FractionalQuantityRegressionAlgorithm(QCAlgorithm):
         self.SetStartDate(2015, 11, 12)
         self.SetEndDate(2016, 4, 1)
         self.SetCash(100000)
-        self.SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash)
+        self.SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash)
 
         self.SetTimeZone(DateTimeZone.Utc)
 

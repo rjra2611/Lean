@@ -42,7 +42,7 @@ class BasicTemplateCryptoAlgorithm(QCAlgorithm):
         self.SetCash("BTC", 1)
         self.SetCash("ETH", 5)
 
-        self.SetBrokerageModel(BrokerageName.GDAX, AccountType.Cash)
+        self.SetBrokerageModel(BrokerageName.CoinbasePro, AccountType.Cash)
 
         # You can uncomment the following lines when live trading with GDAX,
         # to ensure limit orders will only be posted to the order book and never executed as a taker (incurring fees).
