@@ -371,8 +371,8 @@
       "live-mode": true,
 
       // real brokerage implementations require the BrokerageTransactionHandler
-      "live-mode-brokerage": "GDAXBrokerage",
-      "data-queue-handler": [ "GDAXDataQueueHandler" ],
+      "live-mode-brokerage": "CoinbaseProBrokerage",
+      "data-queue-handler": [ "CoinbaseProDataQueueHandler" ],
       "setup-handler": "QuantConnect.Lean.Engine.Setup.BrokerageSetupHandler",
       "result-handler": "QuantConnect.Lean.Engine.Results.LiveTradingResultHandler",
       "data-feed-handler": "QuantConnect.Lean.Engine.DataFeeds.LiveTradingDataFeed",
