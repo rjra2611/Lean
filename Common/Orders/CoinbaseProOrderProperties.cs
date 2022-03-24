@@ -20,7 +20,7 @@ namespace QuantConnect.Orders
     /// <summary>
     /// Contains additional properties and settings for an order submitted to GDAX brokerage
     /// </summary>
-    public class GDAXOrderProperties : OrderProperties
+    public class CoinbaseProOrderProperties : OrderProperties
     {
         /// <summary>
         /// This flag will ensure the order executes only as a maker (no fee) order.
@@ -35,7 +35,7 @@ namespace QuantConnect.Orders
         /// </summary>
         public override IOrderProperties Clone()
         {
-            return (GDAXOrderProperties)MemberwiseClone();
+            return (CoinbaseProOrderProperties)MemberwiseClone();
         }
     }
 }
