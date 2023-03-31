@@ -36,23 +36,12 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         private bool _customDataDownloadError;
         private readonly ConcurrentDictionary<Symbol, Symbol> _marketHoursWarning = new();
         private readonly MarketHoursDatabase _marketHoursDatabase = MarketHoursDatabase.FromDataFolder();
-        private readonly IDataDownloader _dataDownloader;
+        private IDataDownloader _dataDownloader;
 
         /// <summary>
         /// Creates a new instance
         /// </summary>
-        public DownloaderDataProvider()
-        {
-            var dataDownloaderConfig = Config.Get("data-downloader");
-            if (!string.IsNullOrEmpty(dataDownloaderConfig))
-            {
-                _dataDownloader = Composer.Instance.GetExportedValueByTypeName<IDataDownloader>(dataDownloaderConfig);
-            }
-            else
-            {
-                throw new ArgumentException("DownloaderDataProvider(): requires 'data-downloader' to be set with a valid type name");
-            }
-        }
+        public DownloaderDataProvider() {}
 
         /// <summary>
         /// Creates a new instance using a target data downloader
@@ -60,6 +49,7 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         public DownloaderDataProvider(IDataDownloader dataDownloader)
         {
             _dataDownloader = dataDownloader;
+            isInitialized = true;
         }
 
         /// <summary>
@@ -199,6 +189,24 @@ namespace QuantConnect.Lean.Engine.DataFeeds
             // Only download if it doesn't exist or is out of date.
             // Files are only "out of date" for non date based files (hour, daily, margins, etc.) because this data is stored all in one file
             return !File.Exists(filePath) || filePath.IsOutOfDate();
+        }
+
+        /// <summary>
+        /// Initializes the instances
+        /// </summary>
+        public override void Initialize()
+        {
+            if (isInitialized) { return; }
+            isInitialized = true;
+            var dataDownloaderConfig = Config.Get("data-downloader");
+            if (!string.IsNullOrEmpty(dataDownloaderConfig))
+            {
+                _dataDownloader = Composer.Instance.GetExportedValueByTypeName<IDataDownloader>(dataDownloaderConfig);
+            }
+            else
+            {
+                throw new ArgumentException("DownloaderDataProvider(): requires 'data-downloader' to be set with a valid type name");
+            }
         }
     }
 }

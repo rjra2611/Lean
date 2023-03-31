@@ -464,6 +464,8 @@ namespace QuantConnect.Lean.Engine.Results
         /// <param name="packet">Packet to store.</param>
         protected abstract void StoreResult(Packet packet);
 
+        public abstract void SendFinalResult();
+
         /// <summary>
         /// Gets the current portfolio value
         /// </summary>

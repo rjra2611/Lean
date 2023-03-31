@@ -34,23 +34,31 @@ namespace QuantConnect.Lean.Engine.DataFeeds
     {
         private readonly int _uid = Config.GetInt("job-user-id", 0);
         private readonly string _token = Config.Get("api-access-token", "1");
-        private readonly string _organizationId = Config.Get("job-organization-id");
+        private string _organizationId = Config.Get("job-organization-id");
         private readonly string _dataPath = Config.Get("data-folder", "../../../Data/");
         private decimal _purchaseLimit = Config.GetValue("data-purchase-limit", decimal.MaxValue); //QCC
 
-        private readonly HashSet<SecurityType> _unsupportedSecurityType;
-        private readonly DataPricesList _dataPrices;
-        private readonly Api.Api _api;
-        private readonly bool _subscribedToIndiaEquityMapAndFactorFiles;
-        private readonly bool _subscribedToUsaEquityMapAndFactorFiles;
-        private readonly bool _subscribedToFutureMapAndFactorFiles;
+        private HashSet<SecurityType> _unsupportedSecurityType;
+        private DataPricesList _dataPrices;
+        private Api.Api _api;
+        private bool _subscribedToIndiaEquityMapAndFactorFiles;
+        private bool _subscribedToUsaEquityMapAndFactorFiles;
+        private bool _subscribedToFutureMapAndFactorFiles;
         private volatile bool _invalidSecurityTypeLog;
 
         /// <summary>
         /// Initialize a new instance of the <see cref="ApiDataProvider"/>
         /// </summary>
-        public ApiDataProvider()
+        public ApiDataProvider() {}
+
+        /// <summary>
+        /// Initializes the instances
+        /// </summary>
+        public override void Initialize()
         {
+            if (isInitialized) { return; }
+            isInitialized = true;
+
             _api = new Api.Api();
             _unsupportedSecurityType = new HashSet<SecurityType> { SecurityType.Future, SecurityType.FutureOption, SecurityType.Index, SecurityType.IndexOption };
             _api.Initialize(_uid, _token, _dataPath);

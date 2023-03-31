@@ -102,12 +102,20 @@ namespace QuantConnect.Lean.Launcher
                 // Create the algorithm manager and start our engine
                 algorithmManager = new AlgorithmManager(liveMode, job);
 
+                leanEngineAlgorithmHandlers.Results.Initialize(job, leanEngineSystemHandlers.Notify, leanEngineSystemHandlers.Api, leanEngineAlgorithmHandlers.Transactions);
+                leanEngineAlgorithmHandlers.DataProvider.Initialize();
+
                 leanEngineSystemHandlers.LeanManager.Initialize(leanEngineSystemHandlers, leanEngineAlgorithmHandlers, job, algorithmManager);
 
                 OS.Initialize();
 
                 var engine = new Engine.Engine(leanEngineSystemHandlers, leanEngineAlgorithmHandlers, liveMode);
                 engine.Run(job, algorithmManager, assemblyPath, WorkerThread.Instance);
+            }
+            catch (Exception e)
+            {
+                leanEngineAlgorithmHandlers.Results.RuntimeError(e.Message, e.StackTrace);
+                leanEngineAlgorithmHandlers.Results.SendFinalResult();
             }
             finally
             {

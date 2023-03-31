@@ -67,6 +67,14 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         }
 
         /// <summary>
+        /// Initializes the instances
+        /// </summary>
+        public virtual void Initialize()
+        {
+            //
+        }
+
+        /// <summary>
         /// Event invocator for the <see cref="NewDataRequest"/> event
         /// </summary>
         protected virtual void OnNewDataRequest(DataProviderNewDataRequestEventArgs e)

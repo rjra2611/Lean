@@ -324,7 +324,7 @@ namespace QuantConnect.Lean.Engine.Results
         /// <summary>
         /// Send a final analysis result back to the IDE.
         /// </summary>
-        protected void SendFinalResult()
+        public override void SendFinalResult()
         {
             try
             {

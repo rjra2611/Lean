@@ -28,6 +28,11 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         private readonly ConcurrentDictionary<string, string> _currentDownloads = new ConcurrentDictionary<string, string>();
 
         /// <summary>
+        /// Marks if the instance is initialized or not
+        /// </summary>
+        protected Boolean isInitialized;
+        
+        /// <summary>
         /// Helper method which guarantees each requested key is downloaded only once concurrently if required based on <see cref="NeedToDownload"/>
         /// </summary>
         /// <param name="key">A string representing where the data is stored</param>

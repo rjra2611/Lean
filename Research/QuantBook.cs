@@ -128,7 +128,7 @@ namespace QuantConnect.Research
                 systemHandlers.LeanManager.SetAlgorithm(this);
 
                 ProjectId = Config.GetInt("project-id");
-
+                algorithmHandlers.DataProvider.Initialize();
                 algorithmHandlers.DataPermissionsManager.Initialize(new AlgorithmNodePacket(PacketType.BacktestNode)
                 {
                     UserToken = Config.Get("api-access-token"),

@@ -91,5 +91,13 @@ namespace QuantConnect.Lean.Engine.DataFeeds
         {
             NewDataRequest?.Invoke(this, e);
         }
+
+        /// <summary>
+        /// Initializes the instances
+        /// </summary>
+        public void Initialize()
+        {
+            //
+        }
     }
 }
